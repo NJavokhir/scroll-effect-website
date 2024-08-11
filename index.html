@@ -27,6 +27,15 @@
         .section {
             background: lightgrey;
         }
+        .flex-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .flex-section img {
+            position: static;
+            max-width: 40%;
+        }
     </style>
 </head>
 <body>
@@ -39,11 +48,17 @@
     <section class="section"><img src="images/3.webp" alt="Image 2"></section>
     <section class="section"><img src="images/5.webp" alt="Image 3"></section>
     <section class="section"><img src="images/7.webp" alt="Image 4"></section>
-    <section class="section"><img src="images/beauty_sky.webp" alt="Image 5"></section>
+    <section class="section"><img src="images/trenjpg.png" alt="Image 14"></section>
     <section class="section"><img src="images/car_driving.webp" alt="Image 6"></section>
+    <section class="section"><img src="images/beauty_sky.webp" alt="Image 5"></section>
     <section class="section"><img src="images/diseno_de_personaje_1.png" alt="Image 7"></section>
     <section class="section"><img src="images/old_night.webp" alt="Image 8"></section>
-    <section class="section"><img src="images/trenjpg.png" alt="Image 14"></section>
+    <section class="section">
+        <img src="images/2a.webp" alt="Image 9" class="img-9">
+        <img src="images/2b.webp" alt="Image 10" class="img-10">
+        <img src="images/2c.webp" alt="Image 11" class="img-11">
+        <img src="images/2d.webp" alt="Image 12" class="img-12">
+    </section>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
@@ -105,6 +120,54 @@
                 ease: "none",
             });
         });
+
+        const convergeDuration = 1;
+        const convergeTarget = { x: 0, y: 0, scale: 1, opacity: 1 };
+
+        gsap.fromTo(".img-9", 
+            { x: -500, y: -500, scale: 0.5, opacity: 0 }, 
+            { ...convergeTarget, 
+                scrollTrigger: {
+                    trigger: ".img-9",
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: true,
+                }
+            });
+
+        gsap.fromTo(".img-10", 
+            { x: 200, y: -500, scale: 0.5, opacity: 0 }, 
+            { ...convergeTarget, 
+                scrollTrigger: {
+                    trigger: ".img-10",
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: true,
+                }
+            });
+
+        gsap.fromTo(".img-11", 
+            { x: -500, y: 500, scale: 0.5, opacity: 0 }, 
+            { ...convergeTarget, 
+                scrollTrigger: {
+                    trigger: ".img-11",
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: true,
+                }
+            });
+
+        gsap.fromTo(".img-12", 
+            { x: 300, y: 500, scale: 0.5, opacity: 0 }, 
+            { ...convergeTarget, 
+                scrollTrigger: {
+                    trigger: ".img-12",
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: true,
+                }
+            });
+
     </script>
 </body>
 </html>
