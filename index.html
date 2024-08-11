@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GSAP Scroll Animation</title>
     <style>
-    body {
+        body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    overflow-y: auto; /* Enable vertical scrolling by default */
 }
-
         section {
             height: 100vh;
             display: flex;
@@ -82,12 +82,11 @@
 .img-11 {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 200vw; /* Makes the image twice as wide as the viewport */
+    left: -50%;
+    width: 200%;
     height: 100%;
     object-fit: cover;
 }
-
 
     </style>
 </head>
@@ -126,12 +125,11 @@
         <img src="images/3.webp" alt="Image 6">
         <img style="margin-bottom: 20%;" src="images/trenjpg2.png" alt="Image 10">
     </section>
-
     <section class="section long-width">
         <img src="images/car_driving.webp" alt="Image 11" class="img-11">
     </section>
     <section class="section long-section"><img src="images/beauty_sky.webp" alt="Image 12"></section>
-    
+
     <!-- <section class="section flex-section">
         <img src="images/2a.webp" alt="Image 9" class="img-9">
         <img src="images/2b.webp" alt="Image 10" class="img-10">
@@ -278,32 +276,36 @@
                 }
             });
 
-// Horizontal scroll animation for img-11
+            gsap.utils.toArray('.section-white p span').forEach((span, index) => {
+                gsap.to(span, {
+                    opacity: 1,
+                    scrollTrigger: {
+                        trigger: span,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        scrub: true,
+                        toggleActions: "play none none reverse",
+                    }
+                });
+            });
+
 gsap.to(".img-11", {
-    x: '100%', // Move the image from right to left
+    x: '100%', 
     ease: "none",
     scrollTrigger: {
         trigger: ".long-width",
         start: "top top", 
-        end: () => `+=${document.querySelector(".long-width").offsetWidth}`, // Adjust end to match image width
+        end: () => `+=${document.querySelector(".img-11").offsetWidth}`, // Adjust end to match image width
         scrub: true,
-        pin: true, // Pin the section while horizontal scroll is active
-        anticipatePin: 1,
+        pin: true,
     }
 });
 
-// Re-enable vertical scroll after horizontal scroll ends
 ScrollTrigger.create({
     trigger: ".long-width",
     start: "top top",
-    // end: () => `+=${document.querySelector(".long-width").offsetWidth}`, // Match the horizontal scroll distance
-    // onLeave: () => {
-    //     document.body.style.overflowY = "auto"; // Re-enable vertical scroll
-    // },
-    // onEnterBack: () => {
-    //     document.body.style.overflowY = "hidden"; // Disable vertical scroll when scrolling back up
-    // },
 });
+
     </script>
 </body>
 </html>
