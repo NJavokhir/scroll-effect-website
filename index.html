@@ -65,6 +65,12 @@
             display: block;
             opacity: 0;
         }
+
+.long-section img {
+    height: 300vh; /* Ensure the image stretches to fill the section */
+    width: auto;
+}
+
     </style>
 </head>
 <body>
@@ -93,13 +99,13 @@
         </p>
         <img src="images/diseno_de_personaje_1.png" alt="Image 13">
     </section>
+    <section class="section long-section">14<img src="images/old_night.webp" alt="Image 14"></section>
+    <section class="section"><img src="images/7.webp" alt="Image 8"></section>
     <section class="section">6<img src="images/3.webp" alt="Image 6"></section>
-    <section class="section">8<img src="images/7.webp" alt="Image 8"></section>
     <section class="section">9<img src="images/trenjpg.png" alt="Image 9"></section>
     <section class="section">10<img src="images/trenjpg2.png" alt="Image 10"></section>
     <section class="section">11<img src="images/car_driving.webp" alt="Image 11"></section>
     <section class="section">12<img src="images/beauty_sky.webp" alt="Image 12"></section>
-    <section class="section">14<img src="images/old_night.webp" alt="Image 14"></section>
 
     <section class="section flex-section">
         <img src="images/2a.webp" alt="Image 9" class="img-9">
@@ -134,7 +140,7 @@
                     animationSettings = { x: 50, opacity: 10, rotate: 1 };
                     break;
                 case 5:
-                    animationSettings = { x: 50, opacity: 10, rotate: 1 };
+                    animationSettings = { x: 200, opacity: 10, rotate: 1 };
                     break;
                 case 6:
                     animationSettings = { x: 50, opacity: 10, rotate: 1 };
