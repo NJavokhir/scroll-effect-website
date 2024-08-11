@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GSAP Scroll Animation</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
         section {
             height: 100vh;
             display: flex;
@@ -67,9 +68,26 @@
         }
 
 .long-section img {
-    height: 300vh; /* Ensure the image stretches to fill the section */
+    height: 6000px;
+    width: 100%;
     width: auto;
 }
+
+.long-width {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.img-11 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200vw; /* Makes the image twice as wide as the viewport */
+    height: 100%;
+    object-fit: cover;
+}
+
 
     </style>
 </head>
@@ -108,15 +126,18 @@
         <img src="images/3.webp" alt="Image 6">
         <img style="margin-bottom: 20%;" src="images/trenjpg2.png" alt="Image 10">
     </section>
-    <section class="section"><img src="images/car_driving.webp" alt="Image 11"></section>
-    <section class="section"><img src="images/beauty_sky.webp" alt="Image 12"></section>
 
-    <section class="section flex-section">
+    <section class="section long-width">
+        <img src="images/car_driving.webp" alt="Image 11" class="img-11">
+    </section>
+    <section class="section long-section"><img src="images/beauty_sky.webp" alt="Image 12"></section>
+    
+    <!-- <section class="section flex-section">
         <img src="images/2a.webp" alt="Image 9" class="img-9">
         <img src="images/2b.webp" alt="Image 10" class="img-10">
         <img src="images/2c.webp" alt="Image 11" class="img-11">
         <img src="images/2d.webp" alt="Image 12" class="img-12">
-    </section>
+    </section> -->
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
@@ -160,6 +181,9 @@
                     break;
                 case 10:
                     animationSettings = { x: 2000, opacity: 10, scale: 0.8 };
+                    break;
+                case 12:
+                    animationSettings = { x: 0, opacity: 10, scale: 0.8 };
                     break;
                 default:
                     animationSettings = { opacity: 0, scale: 0.8, rotate: 5 };
@@ -254,19 +278,32 @@
                 }
             });
 
-            gsap.utils.toArray('.section-white p span').forEach((span, index) => {
-                gsap.to(span, {
-                    opacity: 1,
-                    scrollTrigger: {
-                        trigger: span,
-                        start: "top 80%", // Start the animation when the span is near the viewport
-                        end: "bottom 20%", // End the animation when it's at the bottom of the viewport
-                        scrub: true, // Smoothly animate as you scroll
-                        toggleActions: "play none none reverse", // Play forward and reverse on scroll
-                    }
-                });
-            });
+// Horizontal scroll animation for img-11
+gsap.to(".img-11", {
+    x: '100%', // Move the image from right to left
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".long-width",
+        start: "top top", 
+        end: () => `+=${document.querySelector(".long-width").offsetWidth}`, // Adjust end to match image width
+        scrub: true,
+        pin: true, // Pin the section while horizontal scroll is active
+        anticipatePin: 1,
+    }
+});
 
+// Re-enable vertical scroll after horizontal scroll ends
+ScrollTrigger.create({
+    trigger: ".long-width",
+    start: "top top",
+    // end: () => `+=${document.querySelector(".long-width").offsetWidth}`, // Match the horizontal scroll distance
+    // onLeave: () => {
+    //     document.body.style.overflowY = "auto"; // Re-enable vertical scroll
+    // },
+    // onEnterBack: () => {
+    //     document.body.style.overflowY = "hidden"; // Disable vertical scroll when scrolling back up
+    // },
+});
     </script>
 </body>
 </html>
