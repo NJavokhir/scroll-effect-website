@@ -87,7 +87,36 @@
             height: 100%;
             object-fit: cover;
         }
+        
+        .flex-section-last {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .flex-section-last img {
+            position: static;
+            max-width: 40%;
+        }
 
+        .img-9 {
+            top: 25%;
+            left: 10%;
+        }
+
+        .img-10 {
+            top: 25%;
+            right: 35%;
+        }
+
+        .img-13 {
+            top: 25%; 
+            left: 65%;   
+        }
+
+        .img-12 {
+            bottom: 14%; 
+            right: 14%;  
+        }
     </style>
 </head>
 <body>
@@ -130,10 +159,10 @@
     </section>
     <section class="section long-section"><img src="images/beauty_sky.webp" alt="Image 12"></section>
 
-    <section class="section">
+    <section class="section" style="position: relative;">
         <img src="images/2a.webp" alt="Image 9" class="img-9">
         <img src="images/2b.webp" alt="Image 10" class="img-10">
-        <img src="images/2c.webp" alt="Image 11" class="img-11">
+        <img src="images/2c.webp" alt="Image 11" class="img-13">
         <img src="images/2d.webp" alt="Image 12" class="img-12">
     </section>
     
@@ -229,82 +258,94 @@
             }
         );
 
-        const convergeDuration = 1;
-        const convergeTarget = { x: 0, y: 0, scale: 1, opacity: 1 };
+    // Common animation settings for convergence
+    const convergeTarget = { x: 0, y: 0, scale: 1, opacity: 1 };
 
-        gsap.fromTo(".img-9", 
-            { x: -500, y: -500, scale: 0.5, opacity: 0 }, 
-            { ...convergeTarget, 
+    // Image 9 animation
+    gsap.fromTo(".img-9", 
+        { x: -500, y: -500, scale: 0.5, opacity: 0 }, 
+        { 
+            ...convergeTarget, 
+            scrollTrigger: {
+                trigger: ".img-9",
+                start: "top center",
+                end: "bottom center",
+                scrub: true,
+            }
+        }
+    );
+
+    // Image 10 animation
+    gsap.fromTo(".img-10", 
+        { x: 500, y: -500, scale: 0.5, opacity: 0 }, 
+        { 
+            ...convergeTarget, 
+            scrollTrigger: {
+                trigger: ".img-10",
+                start: "top center",
+                end: "bottom center",
+                scrub: true,
+            }
+        }
+    );
+
+    // Image 13 animation
+    gsap.fromTo(".img-13", 
+        { x: -500, y: 500, scale: 0.5, opacity: 0 }, 
+        { 
+            ...convergeTarget, 
+            scrollTrigger: {
+                trigger: ".img-13",
+                start: "top center",
+                end: "bottom center",
+                scrub: true,
+            }
+        }
+    );
+
+    // Image 12 animation
+    gsap.fromTo(".img-12", 
+        { x: 500, y: 500, scale: 0.5, opacity: 0 }, 
+        { 
+            ...convergeTarget, 
+            scrollTrigger: {
+                trigger: ".img-12",
+                start: "top center",
+                end: "bottom center",
+                scrub: true,
+            }
+        }
+    );
+
+        gsap.utils.toArray('.section-white p span').forEach((span, index) => {
+            gsap.to(span, {
+                opacity: 1,
                 scrollTrigger: {
-                    trigger: ".img-9",
-                    start: "top center",
-                    end: "bottom center",
+                    trigger: span,
+                    start: "top 80%",
+                    end: "bottom 20%",
                     scrub: true,
+                    toggleActions: "play none none reverse",
                 }
             });
+        });
 
-        gsap.fromTo(".img-10", 
-            { x: 200, y: -500, scale: 0.5, opacity: 0 }, 
-            { ...convergeTarget, 
-                scrollTrigger: {
-                    trigger: ".img-10",
-                    start: "top center",
-                    end: "bottom center",
-                    scrub: true,
-                }
-            });
-
-        gsap.fromTo(".img-11", 
-            { x: -500, y: 500, scale: 0.5, opacity: 0 }, 
-            { ...convergeTarget, 
-                scrollTrigger: {
-                    trigger: ".img-11",
-                    start: "top center",
-                    end: "bottom center",
-                    scrub: true,
-                }
-            });
-
-        gsap.fromTo(".img-12", 
-            { x: 300, y: 500, scale: 0.5, opacity: 0 }, 
-            { ...convergeTarget, 
-                scrollTrigger: {
-                    trigger: ".img-12",
-                    start: "top center",
-                    end: "bottom center",
-                    scrub: true,
-                }
-            });
-
-            gsap.utils.toArray('.section-white p span').forEach((span, index) => {
-                gsap.to(span, {
-                    opacity: 1,
-                    scrollTrigger: {
-                        trigger: span,
-                        start: "top 80%",
-                        end: "bottom 20%",
-                        scrub: true,
-                        toggleActions: "play none none reverse",
-                    }
-                });
-            });
-
-            gsap.to(".img-11", {
-                x: '100%', 
-                ease: "none",
-                scrollTrigger: {
-                    trigger: ".long-width",
-                    start: "top top", 
-                    end: () => `+=${document.querySelector(".img-11").offsetWidth}`, // Adjust end to match image width
-                    scrub: true,
-                    pin: true,
-                }
-            });
-
-            ScrollTrigger.create({
+        gsap.to(".img-11", {
+            x: '100%', 
+            ease: "none",
+            scrollTrigger: {
                 trigger: ".long-width",
-                start: "top top",
-            });
+                start: "top top", 
+                end: () => `+=${document.querySelector(".img-11").offsetWidth}`,
+                scrub: true,
+                pin: true,
+            }
+        });
+
+        ScrollTrigger.create({
+            trigger: ".long-width",
+            start: "top top",
+        });
 
     </script>
 </body>
