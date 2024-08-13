@@ -87,16 +87,6 @@
             height: 100%;
             object-fit: cover;
         }
-        
-        .flex-section-last {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-        .flex-section-last img {
-            position: static;
-            max-width: 40%;
-        }
 
         .img-9 {
             top: 25%;
@@ -183,13 +173,13 @@
                     animationSettings = { y: 50, opacity: 10, rotate: 1 };
                     break;
                 case 2:
-                    animationSettings = { x: 50, opacity: 10, scale: 1 };
+                    animationSettings = { y: -50, opacity: 10, scale: 1 };
                     break;
                 case 3:
-                    animationSettings = { x: 50, opacity: 10, rotate: 1 };
+                    animationSettings = { y: 50, opacity: 10, rotate: 1 };
                     break;
                 case 4:
-                    animationSettings = { x: 50, opacity: 10, rotate: 1 };
+                    animationSettings = { y: -50, opacity: 10, rotate: 1 };
                     break;
                 case 5:
                     animationSettings = { x: 200, opacity: 10, rotate: 1 };
@@ -207,10 +197,10 @@
                     animationSettings = { x: 50, opacity: 10, scale: 0.8 };
                     break;
                 case 10:
-                    animationSettings = { x: 2000, opacity: 10, scale: 0.8 };
+                    animationSettings = { x: 2000, opacity: 10, scale: 1 };
                     break;
                 case 12:
-                    animationSettings = { x: 0, opacity: 10, scale: 0.8 };
+                    animationSettings = { x: 50, opacity: 10, rotate: 10 };
                     break;
                 default:
                     animationSettings = { opacity: 0, scale: 0.8, rotate: 5 };
@@ -228,9 +218,9 @@
             });
         });
 
-        // Image 3 animation
+        // Image 3
         gsap.fromTo(".img-3", 
-            { x: '120%', opacity: 10 }, 
+            { x: '110%', opacity: 10 }, 
             { 
                 x: '-200%', opacity: 10,
                 scrollTrigger: {
@@ -243,7 +233,7 @@
             }
         );
 
-        // Image 7 animationn
+        // Image 7
         gsap.fromTo(".img-7", 
             { x: '-400%', opacity: 10 }, 
             { 
@@ -257,65 +247,6 @@
                 }
             }
         );
-
-    // Common animation settings for convergence
-    const convergeTarget = { x: 0, y: 0, scale: 1, opacity: 1 };
-
-    // Image 9 animation
-    gsap.fromTo(".img-9", 
-        { x: -500, y: -500, scale: 0.5, opacity: 0 }, 
-        { 
-            ...convergeTarget, 
-            scrollTrigger: {
-                trigger: ".img-9",
-                start: "top center",
-                end: "bottom center",
-                scrub: true,
-            }
-        }
-    );
-
-    // Image 10 animation
-    gsap.fromTo(".img-10", 
-        { x: 500, y: -500, scale: 0.5, opacity: 0 }, 
-        { 
-            ...convergeTarget, 
-            scrollTrigger: {
-                trigger: ".img-10",
-                start: "top center",
-                end: "bottom center",
-                scrub: true,
-            }
-        }
-    );
-
-    // Image 13 animation
-    gsap.fromTo(".img-13", 
-        { x: -500, y: 500, scale: 0.5, opacity: 0 }, 
-        { 
-            ...convergeTarget, 
-            scrollTrigger: {
-                trigger: ".img-13",
-                start: "top center",
-                end: "bottom center",
-                scrub: true,
-            }
-        }
-    );
-
-    // Image 12 animation
-    gsap.fromTo(".img-12", 
-        { x: 500, y: 500, scale: 0.5, opacity: 0 }, 
-        { 
-            ...convergeTarget, 
-            scrollTrigger: {
-                trigger: ".img-12",
-                start: "top center",
-                end: "bottom center",
-                scrub: true,
-            }
-        }
-    );
 
         gsap.utils.toArray('.section-white p span').forEach((span, index) => {
             gsap.to(span, {
@@ -346,6 +277,65 @@
             trigger: ".long-width",
             start: "top top",
         });
+
+
+        const convergeTarget = { x: 0, y: 0, scale: 1, opacity: 1 };
+
+        // Image 9
+        gsap.fromTo(".img-9", 
+            { x: -500, y: -100, scale: 0.1, opacity: 0 }, 
+            { 
+                ...convergeTarget, 
+                scrollTrigger: {
+                    trigger: ".img-9",
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: true,
+                }
+            }
+        );
+
+        // Image 10
+        gsap.fromTo(".img-10", 
+            { x: 500, y: -100, scale: 0.1, opacity: 0 }, 
+            { 
+                ...convergeTarget, 
+                scrollTrigger: {
+                    trigger: ".img-10",
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: true,
+                }
+            }
+        );
+
+        // Image 13
+        gsap.fromTo(".img-13", 
+            { x: -500, y: -100, scale: 0.1, opacity: 0 }, 
+            { 
+                ...convergeTarget, 
+                scrollTrigger: {
+                    trigger: ".img-13",
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: true,
+                }
+            }
+        );
+
+        // Image 12
+        gsap.fromTo(".img-12", 
+            { x: -500, y: -500, scale: 0.1, opacity: 0 }, 
+            { 
+                ...convergeTarget, 
+                scrollTrigger: {
+                    trigger: ".img-12",
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: true,
+                }
+            }
+        );
 
     </script>
 </body>
