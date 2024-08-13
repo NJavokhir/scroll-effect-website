@@ -6,12 +6,12 @@
     <title>GSAP Scroll Animation</title>
     <style>
         body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    overflow-y: auto; /* Enable vertical scrolling by default */
-}
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
         section {
             height: 100vh;
             display: flex;
@@ -67,26 +67,26 @@
             opacity: 0;
         }
 
-.long-section img {
-    height: 6000px;
-    width: 100%;
-    width: auto;
-}
+        .long-section img {
+            height: 6000px;
+            width: 100%;
+            width: auto;
+        }
 
-.long-width {
-    position: relative;
-    overflow: hidden;
-    height: 100vh;
-}
+        .long-width {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+        }
 
-.img-11 {
-    position: absolute;
-    top: 0;
-    left: -50%;
-    width: 200%;
-    height: 100%;
-    object-fit: cover;
-}
+        .img-11 {
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            object-fit: cover;
+        }
 
     </style>
 </head>
@@ -130,12 +130,12 @@
     </section>
     <section class="section long-section"><img src="images/beauty_sky.webp" alt="Image 12"></section>
 
-    <!-- <section class="section flex-section">
+    <section class="section">
         <img src="images/2a.webp" alt="Image 9" class="img-9">
         <img src="images/2b.webp" alt="Image 10" class="img-10">
         <img src="images/2c.webp" alt="Image 11" class="img-11">
         <img src="images/2d.webp" alt="Image 12" class="img-12">
-    </section> -->
+    </section>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
@@ -289,22 +289,22 @@
                 });
             });
 
-gsap.to(".img-11", {
-    x: '100%', 
-    ease: "none",
-    scrollTrigger: {
-        trigger: ".long-width",
-        start: "top top", 
-        end: () => `+=${document.querySelector(".img-11").offsetWidth}`, // Adjust end to match image width
-        scrub: true,
-        pin: true,
-    }
-});
+            gsap.to(".img-11", {
+                x: '100%', 
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".long-width",
+                    start: "top top", 
+                    end: () => `+=${document.querySelector(".img-11").offsetWidth}`, // Adjust end to match image width
+                    scrub: true,
+                    pin: true,
+                }
+            });
 
-ScrollTrigger.create({
-    trigger: ".long-width",
-    start: "top top",
-});
+            ScrollTrigger.create({
+                trigger: ".long-width",
+                start: "top top",
+            });
 
     </script>
 </body>
