@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP 50 Examples</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .example {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            position: relative;
+        }
+
+        .box {
+            background-color: #3498db;
+        }
+
+        .circle {
+            border-radius: 50%;
+            background-color: #e74c3c;
+        }
+
+        .rectangle {
+            background-color: #2ecc71;
+            width: 150px;
+            height: 75px;
+        }
+
+        .label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Examples with Labels -->
+    <div class="example box"><div class="label">1</div></div>
+    <div class="example circle"><div class="label">2</div></div>
+    <div class="example rectangle"><div class="label">3</div></div>
+    <div class="example box"><div class="label">4</div></div>
+    <div class="example circle"><div class="label">5</div></div>
+    <div class="example rectangle"><div class="label">6</div></div>
+    <div class="example box"><div class="label">7</div></div>
+    <div class="example circle"><div class="label">8</div></div>
+    <div class="example rectangle"><div class="label">9</div></div>
+    <div class="example box"><div class="label">10</div></div>
+    <div class="example circle"><div class="label">11</div></div>
+    <div class="example rectangle"><div class="label">12</div></div>
+    <div class="example box"><div class="label">13</div></div>
+    <div class="example circle"><div class="label">14</div></div>
+    <div class="example rectangle"><div class="label">15</div></div>
+    <div class="example box"><div class="label">16</div></div>
+    <div class="example circle"><div class="label">17</div></div>
+    <div class="example rectangle"><div class="label">18</div></div>
+    <div class="example box"><div class="label">19</div></div>
+    <div class="example circle"><div class="label">20</div></div>
+    <div class="example rectangle"><div class="label">21</div></div>
+    <div class="example box"><div class="label">22</div></div>
+    <div class="example circle"><div class="label">23</div></div>
+    <div class="example rectangle"><div class="label">24</div></div>
+    <div class="example box"><div class="label">25</div></div>
+    <div class="example circle"><div class="label">26</div></div>
+    <div class="example rectangle"><div class="label">27</div></div>
+    <div class="example box"><div class="label">28</div></div>
+    <div class="example circle"><div class="label">29</div></div>
+    <div class="example rectangle"><div class="label">30</div></div>
+    <div class="example box"><div class="label">31</div></div>
+    <div class="example circle"><div class="label">32</div></div>
+    <div class="example rectangle"><div class="label">33</div></div>
+    <div class="example box"><div class="label">34</div></div>
+    <div class="example circle"><div class="label">35</div></div>
+    <div class="example rectangle"><div class="label">36</div></div>
+    <div class="example box"><div class="label">37</div></div>
+    <div class="example circle"><div class="label">38</div></div>
+    <div class="example rectangle"><div class="label">39</div></div>
+    <div class="example box"><div class="label">40</div></div>
+    <div class="example circle"><div class="label">41</div></div>
+    <div class="example rectangle"><div class="label">42</div></div>
+    <div class="example box"><div class="label">43</div></div>
+    <div class="example circle"><div class="label">44</div></div>
+    <div class="example rectangle"><div class="label">45</div></div>
+    <div class="example box"><div class="label">46</div></div>
+    <div class="example circle"><div class="label">47</div></div>
+    <div class="example rectangle"><div class="label">48</div></div>
+    <div class="example box"><div class="label">49</div></div>
+    <div class="example circle"><div class="label">50</div></div>
+
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+
+    <script>
+        // GSAP Examples
+
+        gsap.to(".box:nth-child(1)", { x: 200, duration: 2 });
+
+        gsap.fromTo(".circle:nth-child(2)", 
+            { scale: 0, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 2 }
+        );
+
+        gsap.to(".rectangle:nth-child(3)", { rotation: 360, x: 200, duration: 3 });
+
+        gsap.from(".box:nth-child(4)", { opacity: 0, y: 100, duration: 1 })
+            .to(".box:nth-child(4)", { opacity: 1, y: 0, duration: 1, delay: 1 });
+
+        gsap.fromTo(".circle:nth-child(5)", 
+            { y: -200 },
+            { y: 0, ease: "bounce.out", duration: 2 }
+        );
+
+        gsap.from(".example", { y: 100, opacity: 0, stagger: 0.5, duration: 1 });
+
+        gsap.to(".box:nth-child(7)", { x: 500, scrollTrigger: { trigger: ".box:nth-child(7)", start: "top center", end: "bottom top", scrub: 1 } });
+
+        gsap.to(".circle:nth-child(8)", { x: 300, delay: 1, duration: 2 });
+
+        gsap.to(".rectangle:nth-child(9)", {
+            motionPath: {
+                path: [{ x: 0, y: 0 }, { x: 300, y: 0 }, { x: 300, y: 300 }, { x: 0, y: 300 }, { x: 0, y: 0 }],
+                curviness: 1.5
+            },
+            duration: 4
+        });
+
+        gsap.from(".box:nth-child(10)", { opacity: 0, scale: 0.5, duration: 2 });
+
+        gsap.fromTo(".circle:nth-child(11)", 
+            { x: -300, opacity: 0 },
+            { x: 0, opacity: 1, duration: 2 }
+        );
+
+        gsap.fromTo(".rectangle:nth-child(12)", 
+            { rotation: 0, scale: 0 },
+            { rotation: 360, scale: 1, duration: 2 }
+        );
+
+        gsap.from(".box:nth-child(13)", { opacity: 0, y: 100, duration: 2 });
+
+        gsap.to(".circle:nth-child(14)", { scale: 1.5, duration: 1, yoyo: true, repeat: -1 });
+
+        gsap.fromTo(".rectangle:nth-child(15)", 
+            { x: -300 },
+            { x: 0, ease: "bounce.out", duration: 2 }
+        );
+
+        gsap.fromTo(".box:nth-child(16)", 
+            { rotation: 0, opacity: 0 },
+            { rotation: 360, opacity: 1, duration: 2 }
+        );
+
+        gsap.fromTo(".circle:nth-child(17)", 
+            { x: -200, scale: 0.5 },
+            { x: 0, scale: 1, duration: 2 }
+        );
+
+        gsap.fromTo(".rectangle:nth-child(18)", 
+            { x: -300, opacity: 0 },
+            { x: 0, opacity: 1, duration: 2 }
+        );
+
+        gsap.fromTo(".box:nth-child(19)", 
+            { rotation: 0, x: -200 },
+            { rotation: 360, x: 0, duration: 2 }
+        );
+
+        gsap.from(".example", { opacity: 0, stagger: 0.5, duration: 1 });
+
+        gsap.from(".circle:nth-child(21)", { y: -300, ease: "bounce.out", duration: 2 });
+
+        gsap.fromTo(".rectangle:nth-child(22)", 
+            { scale: 0, rotation: 0 },
+            { scale: 1, rotation: 360, duration: 2 }
+        );
+
+        gsap.to(".box:nth-child(23)", { x: 300, duration: 2 });
+
+        gsap.to(".circle:nth-child(24)", { rotation: 360, opacity: 0, duration: 2 });
+
+        gsap.fromTo(".rectangle:nth-child(25)", 
+            { opacity: 0 },
+            { opacity: 1, duration: 2 }
+        );
+
+        gsap.fromTo(".box:nth-child(26)", 
+            { y: 200 },
+            { y: 0, duration: 2, yoyo: true, repeat: -1 }
+        );
+
+        gsap.fromTo(".circle:nth-child(27)", 
+            { scale: 0.5, rotation: 0 },
+            { scale: 1.5, rotation: 360, duration: 2 }
+        );
+
+        gsap.fromTo(".rectangle:nth-child(28)", 
+            { opacity: 0, x: -300 },
+            { opacity: 1, x: 0, duration: 2 }
+        );
+
+        gsap.fromTo(".box:nth-child(29)", 
+            { rotation: 0, y: 300 },
+            { rotation: 360, y: 0, duration: 2 }
+        );
+
+        gsap.from(".example", { scale: 0.5, stagger: 0.5, duration: 1 });
+
+        gsap.fromTo(".circle:nth-child(31)", 
+            { x: -300 },
+            { x: 0, duration: 2 }
+        );
+
+        gsap.fromTo(".rectangle:nth-child(32)", 
+            { y: 300 },
+            { y: 0, duration: 2 }
+        );
+
+        gsap.fromTo(".box:nth-child(33)", 
+            { rotation: 0, scale: 0 },
+            { rotation: 360, scale: 1, duration: 2 }
+        );
+
+        gsap.fromTo(".circle:nth-child(34)", 
+            { y: -200, opacity: 0 },
+            { y: 0, opacity: 1, ease: "bounce.out", duration: 2 }
+        );
+
+        gsap.to(".rectangle:nth-child(35)", { opacity: 0, x: -300, duration: 2 });
+
+        gsap.fromTo(".box:nth-child(36)", 
+            { rotation: 0 },
+            { rotation: 360, ease: "bounce.out", duration: 2 }
+        );
+
+        gsap.fromTo(".circle:nth-child(37)", 
+            { x: 300, opacity: 1 },
+            { x: 0, opacity: 0, duration: 2 }
+        );
+
+        gsap.fromTo(".rectangle:nth-child(38)", 
+            { scale: 0.5, x: -300 },
+            { scale: 1, x: 0, duration: 2 }
+        );
+
+        gsap.fromTo(".box:nth-child(39)", 
+            { rotation: 0, x: -200 },
+            { rotation: 360, x: 0, duration: 2 }
+        );
+
+        gsap.from(".example", { rotation: 360, stagger: 0.5, duration: 1 });
+
+        gsap.fromTo(".circle:nth-child(41)", 
+            { x: -300, scale: 0.5 },
+            { x: 0, scale: 1, duration: 2 }
+        );
+
+        gsap.fromTo(".rectangle:nth-child(42)", 
+            { opacity: 0, y: -300 },
+            { opacity: 1, y: 0, duration: 2 }
+        );
+
+        gsap.fromTo(".box:nth-child(43)", 
+            { rotation: 0, scale: 0 },
+            { rotation: 360, scale: 1.5, duration: 2 }
+        );
+
+        gsap.fromTo(".circle:nth-child(44)", 
+            { y: -200, rotation: 0 },
+            { y: 0, rotation: 360, ease: "bounce.out", duration: 2 }
+        );
+
+        gsap.fromTo(".rectangle:nth-child(45)", 
+            { x: 300, opacity: 1 },
+            { x: 0, opacity: 0, duration: 2 }
+        );
+
+        gsap.fromTo(".box:nth-child(46)", 
+            { scale: 0.5, rotation: 0 },
+            { scale: 1, rotation: 360, duration: 2 }
+        );
+
+        gsap.from(".example", { opacity: 0, x: -300, stagger: 0.5, duration: 1 });
+
+        gsap.fromTo(".circle:nth-child(48)", 
+            { scale: 0.5 },
+            { scale: 1.5, duration: 1, yoyo: true, repeat: -1 }
+        );
+
+        gsap.fromTo(".rectangle:nth-child(49)", 
+            { rotation: 0, y: 300 },
+            { rotation: 360, y: 0, duration: 2 }
+        );
+
+        gsap.fromTo(".box:nth-child(50)", 
+            { x: -300, y: 300 },
+            { x: 0, y: 0, duration: 2 }
+        );
+    </script>
+</body>
+</html>
