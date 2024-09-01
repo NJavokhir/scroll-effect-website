@@ -13,7 +13,14 @@
             overflow-y: auto;
         }
         section {
-            height: 100vh;
+            height: 40vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .responsive-height {
+            height: 80vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -21,7 +28,7 @@
         }
         section img {
             max-width: 100vw;
-            max-height: 100vh;
+            max-height: 40vh;
             object-fit: cover;
             position: absolute;
         }
@@ -46,13 +53,15 @@
         }
         .img-3 {
             position: absolute;
+            height: 30%;
             top: 0;
-            right: -10%;
+            right: 0;
         }
         .img-7 {
             position: absolute;
             top: 0;
-            left: -10%;
+            height: 30%;
+            left: 0;
         }
         .section-white p {
             font-size: 24px;
@@ -68,7 +77,7 @@
         }
 
         .long-section img {
-            height: 6000px;
+            height: 3000px;
             width: 100%;
             width: auto;
         }
@@ -77,35 +86,263 @@
             position: relative;
             overflow: hidden;
             height: 100vh;
+            width: 200vw;
         }
 
         .img-11 {
             position: absolute;
             top: 0;
             left: -50%;
-            width: 200%;
-            height: 100%;
+            /* max-width: 338vw;
+            max-height: 80vh; */
+            
+            width: 100%!important;
+            height: 100vh!important;
             object-fit: cover;
         }
 
         .img-9 {
-            top: 25%;
+            top: 20%;
             left: 10%;
+            width: 37%;
         }
 
         .img-10 {
-            top: 25%;
-            right: 35%;
+            top: 20%;
+            right: 30%;
+            width: 40%;
         }
 
         .img-13 {
-            top: 25%; 
-            left: 65%;   
+            top: 20%; 
+            left: 70%;
+            width: 23%;   
         }
 
         .img-12 {
-            bottom: 14%; 
-            right: 14%;  
+            bottom: 35%; 
+            right: 7%;  
+            width: 15%;
+        }
+
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+            section {
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+            section img {
+                max-width: 100vw;
+                max-height: 100vh;
+                object-fit: cover;
+                position: absolute;
+            }
+            .section {
+                background: lightgrey;
+            }
+            .section-white {
+                background: white;
+            }
+            .flex-section {
+                display: flex;
+                align-items: center;
+            }
+            .flex-section img {
+                position: static;
+                max-width: 40%;
+            }
+
+            .background {
+                background: lightgrey;
+                display: absolute;
+            }
+            .img-3 {
+                position: absolute;
+                top: 0;
+                right: -10%;
+            }
+            .img-7 {
+                position: absolute;
+                top: 0;
+                left: -10%;
+            }
+            .section-white p {
+                font-size: 24px;
+                text-align: end;
+                margin-bottom: -200px;
+                line-height: 18px;
+                margin-right: 12px;
+            }
+
+            .section-white p span {
+                display: block;
+                opacity: 0;
+            }
+
+            .long-section img {
+                height: 6000px;
+                width: 100%;
+                width: auto;
+            }
+
+            .long-width {
+                position: relative;
+                overflow: hidden;
+                height: 100vh;
+            }
+
+            .img-11 {
+                position: absolute;
+                top: 0;
+                left: -50%;
+                width: 200%!important;
+                height: 100%!important;
+                object-fit: cover;
+            }
+
+            .img-9 {
+                top: 25%;
+                left: 10%;
+            }
+
+            .img-10 {
+                top: 25%;
+                right: 35%;
+            }
+
+            .img-13 {
+                top: 25%; 
+                left: 65%;   
+            }
+
+            .img-12 {
+                bottom: 14%; 
+                right: 14%;  
+            }
+        }
+
+        /* Desktop-specific styles */
+        @media (min-width: 1025px) {
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+            section {
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+            .responsive-height {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+            section img {
+                max-width: 100vw;
+                max-height: 100vh;
+                object-fit: cover;
+                position: absolute;
+            }
+            .section {
+                background: lightgrey;
+            }
+            .section-white {
+                background: white;
+            }
+            .flex-section {
+                display: flex;
+                align-items: center;
+            }
+            .flex-section img {
+                position: static;
+                max-width: 40%;
+            }
+
+            .background {
+                background: lightgrey;
+                display: absolute;
+            }
+            .img-3 {
+                position: absolute;
+                top: 0;
+                height: 60%;
+                right: -10%;
+            }
+            .img-7 {
+                position: absolute;
+                top: 0;
+                height: 60%;
+                left: -10%;
+            }
+            .section-white p {
+                font-size: 24px;
+                text-align: end;
+                margin-bottom: -200px;
+                line-height: 18px;
+                margin-right: 12px;
+            }
+
+            .section-white p span {
+                display: block;
+                opacity: 0;
+            }
+
+            .long-section img {
+                height: 6000px;
+                width: 100%;
+                width: auto;
+            }
+
+            .long-width {
+                position: relative;
+                overflow: hidden;
+                height: 100vh;
+            }
+
+            .img-11 {
+                position: absolute;
+                top: 0;
+                left: -50%;
+                width: 200%!important;
+                height: 100%!important;
+                object-fit: cover;
+            }
+
+            .img-9 {
+                top: 25%;
+                left: 10%;
+            }
+
+            .img-10 {
+                top: 25%;
+                right: 35%;
+            }
+
+            .img-13 {
+                top: 25%; 
+                left: 65%;   
+            }
+
+            .img-12 {
+                bottom: 14%; 
+                right: 14%;  
+            }
         }
     </style>
 </head>
@@ -118,7 +355,7 @@
     <img src="images/GAC-Char-Old_Man-2023Nov_04.webp" alt="Image 3" class="img-3">
     <section class="section"><img src="images/more_details_nes_shades.webp" alt="Image 4"></section>
     <img src="images/5.webp" alt="Image 7" class="img-7">
-    <section class="section section-white flex-section">
+    <section class="section section-white flex-section responsive-height">
         <p>
             <span>Here I was.</span><br>
             <span>Walking alone</span><br>
@@ -144,9 +381,9 @@
         <img src="images/3.webp" alt="Image 6">
         <img style="margin-bottom: 20%;" src="images/trenjpg2.png" alt="Image 10">
     </section>
-    <section class="section long-width">
+    <div class="long-width">
         <img src="images/car_driving.webp" alt="Image 11" class="img-11">
-    </section>
+    </div>
     <section class="section long-section"><img src="images/beauty_sky.webp" alt="Image 12"></section>
 
     <section class="section" style="position: relative;">
@@ -161,182 +398,363 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Animations for each image
-        document.querySelectorAll('.section img').forEach((img, index) => {
-            let animationSettings = {};
-
-            switch(index) {
-                case 0:
-                    animationSettings = { x: 50, opacity: 10, scale: 0.8 };
-                    break;
-                case 1:
-                    animationSettings = { y: 50, opacity: 10, rotate: 1 };
-                    break;
-                case 2:
-                    animationSettings = { y: -50, opacity: 10, scale: 1 };
-                    break;
-                case 3:
-                    animationSettings = { y: 50, opacity: 10, rotate: 1 };
-                    break;
-                case 4:
-                    animationSettings = { y: -50, opacity: 10, rotate: 1 };
-                    break;
-                case 5:
-                    animationSettings = { x: 200, opacity: 10, rotate: 1 };
-                    break;
-                case 6:
-                    animationSettings = { x: 50, opacity: 10, rotate: 1 };
-                    break;
-                case 7:
-                    animationSettings = { y: 50, opacity: 10, rotate: 1 };
-                    break;
-                case 8:
-                    animationSettings = { x: -2000, opacity: 10, rotate: 1 };
-                    break;
-                case 9:
-                    animationSettings = { x: 50, opacity: 10, scale: 0.8 };
-                    break;
-                case 10:
-                    animationSettings = { x: 2000, opacity: 10, scale: 1 };
-                    break;
-                case 12:
-                    animationSettings = { x: 50, opacity: 10, rotate: 10 };
-                    break;
-                default:
-                    animationSettings = { opacity: 0, scale: 0.8, rotate: 5 };
-                    break;
-            }
-
-            gsap.from(img, {
-                scrollTrigger: {
-                    trigger: img.parentElement,
-                    start: "top center",
-                    end: "bottom center",
-                    scrub: true,
-                },
-                ...animationSettings
+        // Function to detect mobile devices
+        function isMobileDevice() {
+            return window.innerWidth < 768;
+        }
+    
+        // Adjustments for mobile devices
+        if (isMobileDevice()) {
+            document.querySelectorAll('.section img').forEach((img, index) => {
+                let animationSettings = {};
+    
+                switch(index) {
+                    case 0:
+                        animationSettings = { x: 50, opacity: 10, scale: 0.8 };
+                        break;
+                    case 1:
+                        animationSettings = { y: 50, opacity: 10, rotate: 1 };
+                        break;
+                    case 2:
+                        animationSettings = { y: -50, opacity: 10, scale: 1 };
+                        break;
+                    case 3:
+                        animationSettings = { y: 50, opacity: 10, rotate: 1 };
+                        break;
+                    case 4:
+                        animationSettings = { y: -50, opacity: 10, rotate: 1 };
+                        break;
+                    case 5:
+                        animationSettings = { x: 200, opacity: 10, rotate: 1 };
+                        break;
+                    case 6:
+                        animationSettings = { x: 50, opacity: 10, rotate: 1 };
+                        break;
+                    case 7:
+                        animationSettings = { y: 50, opacity: 10, rotate: 1 };
+                        break;
+                    case 8:
+                        animationSettings = { x: -2000, opacity: 10, rotate: 1 };
+                        break;
+                    case 9:
+                        animationSettings = { x: 50, opacity: 10, scale: 0.8 };
+                        break;
+                    case 10:
+                        animationSettings = { x: 2000, opacity: 10, scale: 1 };
+                        break;
+                    case 12:
+                        animationSettings = { x: 50, opacity: 10, rotate: 10 };
+                        break;
+                    default:
+                        animationSettings = { opacity: 0, scale: 0.8, rotate: 5 };
+                        break;
+                }
+    
+                gsap.from(img, {
+                    scrollTrigger: {
+                        trigger: img.parentElement,
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: true,
+                    },
+                    ...animationSettings
+                });
             });
-        });
-
-        // Image 3
-        gsap.fromTo(".img-3", 
-            { x: '110%', opacity: 10 }, 
-            { 
-                x: '-200%', opacity: 10,
+    
+            // Image 3
+            gsap.fromTo(".img-3", 
+                { x: '350%', opacity: 1 }, 
+                { 
+                    x: '-200%', opacity: 10,
+                    scrollTrigger: {
+                        trigger: ".img-3",
+                        start: "top center",
+                        end: "+=300%",
+                        scrub: true,
+                        pin: true,
+                    }
+                }
+            );
+    
+            // Image 7
+            gsap.fromTo(".img-7", 
+                { x: '-200%', opacity: 10 }, 
+                { 
+                    x: '50%', opacity: 10,
+                    scrollTrigger: {
+                        trigger: ".img-7",
+                        start: "top center",
+                        end: "+=400%",
+                        scrub: true,
+                        pin: true,
+                    }
+                }
+            );
+    
+            gsap.utils.toArray('.section-white p span').forEach((span, index) => {
+                gsap.to(span, {
+                    opacity: 1,
+                    scrollTrigger: {
+                        trigger: span,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        scrub: true,
+                        toggleActions: "play none none reverse",
+                    }
+                });
+            });
+    
+            gsap.to(".img-11", {
+                x: '100%', 
+                ease: "none",
                 scrollTrigger: {
-                    trigger: ".img-3",
-                    start: "top center",
-                    end: "+=300%",
+                    trigger: ".long-width",
+                    start: "top top", 
+                    end: () => `+=${document.querySelector(".img-11").offsetWidth}`,
                     scrub: true,
                     pin: true,
                 }
-            }
-        );
-
-        // Image 7
-        gsap.fromTo(".img-7", 
-            { x: '-400%', opacity: 10 }, 
-            { 
-                x: '50%', opacity: 10,
-                scrollTrigger: {
-                    trigger: ".img-7",
-                    start: "top center",
-                    end: "+=400%",
-                    scrub: true,
-                    pin: true,
-                }
-            }
-        );
-
-        gsap.utils.toArray('.section-white p span').forEach((span, index) => {
-            gsap.to(span, {
-                opacity: 1,
-                scrollTrigger: {
-                    trigger: span,
-                    start: "top 80%",
-                    end: "bottom 20%",
-                    scrub: true,
-                    toggleActions: "play none none reverse",
-                }
             });
-        });
-
-        gsap.to(".img-11", {
-            x: '100%', 
-            ease: "none",
-            scrollTrigger: {
+    
+            ScrollTrigger.create({
                 trigger: ".long-width",
-                start: "top top", 
-                end: () => `+=${document.querySelector(".img-11").offsetWidth}`,
-                scrub: true,
-                pin: true,
-            }
-        });
-
-        ScrollTrigger.create({
-            trigger: ".long-width",
-            start: "top top",
-        });
-
-
-        const convergeTarget = { x: 0, y: 0, scale: 1, opacity: 1 };
-
-        // Image 9
-        gsap.fromTo(".img-9", 
-            { x: -500, y: -100, scale: 0.1, opacity: 0 }, 
-            { 
-                ...convergeTarget, 
-                scrollTrigger: {
-                    trigger: ".img-9",
-                    start: "top center",
-                    end: "bottom center",
-                    scrub: true,
+                start: "top top",
+            });
+    
+    
+            const convergeTarget = { x: 0, y: 0, scale: 1, opacity: 1 };
+    
+            // Image 9
+            gsap.fromTo(".img-9", 
+                { x: -500, y: -100, scale: 0.1, opacity: 0 }, 
+                { 
+                    ...convergeTarget, 
+                    scrollTrigger: {
+                        trigger: ".img-9",
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: true,
+                    }
                 }
-            }
-        );
-
-        // Image 10
-        gsap.fromTo(".img-10", 
-            { x: 500, y: -100, scale: 0.1, opacity: 0 }, 
-            { 
-                ...convergeTarget, 
-                scrollTrigger: {
-                    trigger: ".img-10",
-                    start: "top center",
-                    end: "bottom center",
-                    scrub: true,
+            );
+    
+            // Image 10
+            gsap.fromTo(".img-10", 
+                { x: 500, y: -100, scale: 0.1, opacity: 0 }, 
+                { 
+                    ...convergeTarget, 
+                    scrollTrigger: {
+                        trigger: ".img-10",
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: true,
+                    }
                 }
-            }
-        );
-
-        // Image 13
-        gsap.fromTo(".img-13", 
-            { x: -500, y: -100, scale: 0.1, opacity: 0 }, 
-            { 
-                ...convergeTarget, 
-                scrollTrigger: {
-                    trigger: ".img-13",
-                    start: "top center",
-                    end: "bottom center",
-                    scrub: true,
+            );
+    
+            // Image 13
+            gsap.fromTo(".img-13", 
+                { x: -500, y: -100, scale: 0.1, opacity: 0 }, 
+                { 
+                    ...convergeTarget, 
+                    scrollTrigger: {
+                        trigger: ".img-13",
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: true,
+                    }
                 }
-            }
-        );
-
-        // Image 12
-        gsap.fromTo(".img-12", 
-            { x: -500, y: -500, scale: 0.1, opacity: 0 }, 
-            { 
-                ...convergeTarget, 
-                scrollTrigger: {
-                    trigger: ".img-12",
-                    start: "top center",
-                    end: "bottom center",
-                    scrub: true,
+            );
+    
+            // Image 12
+            gsap.fromTo(".img-12", 
+                { x: -500, y: -500, scale: 0.1, opacity: 0 }, 
+                { 
+                    ...convergeTarget, 
+                    scrollTrigger: {
+                        trigger: ".img-12",
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: true,
+                    }
                 }
-            }
-        );
-
+            );
+        } else {
+            document.querySelectorAll('.section img').forEach((img, index) => {
+                let animationSettings = {};
+    
+                switch(index) {
+                    case 0:
+                        animationSettings = { x: 50, opacity: 10, scale: 0.8 };
+                        break;
+                    case 1:
+                        animationSettings = { y: 50, opacity: 10, rotate: 1 };
+                        break;
+                    case 2:
+                        animationSettings = { y: -50, opacity: 10, scale: 1 };
+                        break;
+                    case 3:
+                        animationSettings = { y: 50, opacity: 10, rotate: 1 };
+                        break;
+                    case 4:
+                        animationSettings = { y: -50, opacity: 10, rotate: 1 };
+                        break;
+                    case 5:
+                        animationSettings = { x: 200, opacity: 10, rotate: 1 };
+                        break;
+                    case 6:
+                        animationSettings = { x: 50, opacity: 10, rotate: 1 };
+                        break;
+                    case 7:
+                        animationSettings = { y: 50, opacity: 10, rotate: 1 };
+                        break;
+                    case 8:
+                        animationSettings = { x: -2000, opacity: 10, rotate: 1 };
+                        break;
+                    case 9:
+                        animationSettings = { x: 50, opacity: 10, scale: 0.8 };
+                        break;
+                    case 10:
+                        animationSettings = { x: 2000, opacity: 10, scale: 1 };
+                        break;
+                    case 12:
+                        animationSettings = { x: 50, opacity: 10, rotate: 10 };
+                        break;
+                    default:
+                        animationSettings = { opacity: 0, scale: 0.8, rotate: 5 };
+                        break;
+                }
+    
+                gsap.from(img, {
+                    scrollTrigger: {
+                        trigger: img.parentElement,
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: true,
+                    },
+                    ...animationSettings
+                });
+            });
+    
+            // Image 3
+            gsap.fromTo(".img-3", 
+                { x: '110%', opacity: 10 }, 
+                { 
+                    x: '-200%', opacity: 10,
+                    scrollTrigger: {
+                        trigger: ".img-3",
+                        start: "top center",
+                        end: "+=300%",
+                        scrub: true,
+                        pin: true,
+                    }
+                }
+            );
+    
+            // Image 7
+            gsap.fromTo(".img-7", 
+                { x: '-400%', opacity: 10 }, 
+                { 
+                    x: '50%', opacity: 10,
+                    scrollTrigger: {
+                        trigger: ".img-7",
+                        start: "top center",
+                        end: "+=400%",
+                        scrub: true,
+                        pin: true,
+                    }
+                }
+            );
+    
+            gsap.utils.toArray('.section-white p span').forEach((span, index) => {
+                gsap.to(span, {
+                    opacity: 1,
+                    scrollTrigger: {
+                        trigger: span,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        scrub: true,
+                        toggleActions: "play none none reverse",
+                    }
+                });
+            });
+    
+            gsap.to(".img-11", {
+                x: '100%', 
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".long-width",
+                    start: "top top", 
+                    end: () => `+=${document.querySelector(".img-11").offsetWidth}`,
+                    scrub: true,
+                    pin: true,
+                }
+            });
+    
+            ScrollTrigger.create({
+                trigger: ".long-width",
+                start: "top top",
+            });
+    
+    
+            const convergeTarget = { x: 0, y: 0, scale: 1, opacity: 1 };
+    
+            // Image 9
+            gsap.fromTo(".img-9", 
+                { x: -500, y: -100, scale: 0.1, opacity: 0 }, 
+                { 
+                    ...convergeTarget, 
+                    scrollTrigger: {
+                        trigger: ".img-9",
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: true,
+                    }
+                }
+            );
+    
+            // Image 10
+            gsap.fromTo(".img-10", 
+                { x: 500, y: -100, scale: 0.1, opacity: 0 }, 
+                { 
+                    ...convergeTarget, 
+                    scrollTrigger: {
+                        trigger: ".img-10",
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: true,
+                    }
+                }
+            );
+    
+            // Image 13
+            gsap.fromTo(".img-13", 
+                { x: -500, y: -100, scale: 0.1, opacity: 0 }, 
+                { 
+                    ...convergeTarget, 
+                    scrollTrigger: {
+                        trigger: ".img-13",
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: true,
+                    }
+                }
+            );
+    
+            // Image 12
+            gsap.fromTo(".img-12", 
+                { x: -500, y: -500, scale: 0.1, opacity: 0 }, 
+                { 
+                    ...convergeTarget, 
+                    scrollTrigger: {
+                        trigger: ".img-12",
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: true,
+                    }
+                }
+            );
+        }
     </script>
 </body>
 </html>
